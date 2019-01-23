@@ -1,5 +1,9 @@
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+UnPlug 'ctrlpvim/ctrlp.vim'
+Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-fugitive'
-Plug 'othree/yajs.vim', { 'for': 'javascript' }
 Plug 'janko-m/vim-test'
+Plug 'jgdavey/tslime.vim'
+Plug 'timakro/vim-searchant'
+Plug 'webdevel/tabulous'
+Plug 'w0rp/ale'

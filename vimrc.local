@@ -1,3 +1,6 @@
+" Stop mapping \ to :Ag
+unmap \
+
 set history=100 " Default history is only 20
 set undolevels=100 " Use more levels of undo
 
@@ -13,6 +16,7 @@ set ruler " ruler on
 set nu " Line numbers on
 set noerrorbells  " don't beep
 set vb t_vb= " stops the beeping
+set colorcolumn=0
 
 "map ctrl-space to no-op b/c i use it with tmux
 imap <Nul> <Nop>
@@ -26,20 +30,20 @@ nmap <Nul> <Nop>
 " \l       : list buffers
 " \b \f \g : go back/forward/last-used
 " \1 \2 \3 : go to buffer 1/2/3 etc
-nnoremap <Leader>l :ls<CR>
-nnoremap <Leader>b :bp<CR>
-nnoremap <Leader>f :bn<CR>
-nnoremap <Leader>g :e#<CR>
-nnoremap <Leader>1 :1b<CR>
-nnoremap <Leader>2 :2b<CR>
-nnoremap <Leader>3 :3b<CR>
-nnoremap <Leader>4 :4b<CR>
-nnoremap <Leader>5 :5b<CR>
-nnoremap <Leader>6 :6b<CR>
-nnoremap <Leader>7 :7b<CR>
-nnoremap <Leader>8 :8b<CR>
-nnoremap <Leader>9 :9b<CR>
-nnoremap <Leader>0 :10b<CR>
+nnoremap \l :ls<CR>
+nnoremap \b :bp<CR>
+nnoremap \f :bn<CR>
+nnoremap \g :e#<CR>
+nnoremap \1 :1b<CR>
+nnoremap \2 :2b<CR>
+nnoremap \3 :3b<CR>
+nnoremap \4 :4b<CR>
+nnoremap \5 :5b<CR>
+nnoremap \6 :6b<CR>
+nnoremap \7 :7b<CR>
+nnoremap \8 :8b<CR>
+nnoremap \9 :9b<CR>
+nnoremap \0 :10b<CR>
 " It's useful to show the buffer number in the status line.
 set laststatus=2 statusline=%02n:%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
 
@@ -47,17 +51,26 @@ set laststatus=2 statusline=%02n:%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
 set wildmode=longest,list,full
 set wildmenu
 
-" fix illegibility problem in vimdiff
-"set background=dark
-
-" local leader - for use in filetype specific things
-let maplocalleader=" "
-
-" mappings for vim-test
-" normal mode noremap (as opposed to insert mode noremap)
-nnoremap <localleader>tf :TestFile<CR>
-nnoremap <localleader>tn :TestNearest<CR>
-
 " mapping for fuzzy file search
-nnoremap <localleader>f :Files<CR>
-nnoremap <localleader>b :Buffers<CR>
+nnoremap <Leader>f :Files<CR>
+nnoremap <Leader>b :Buffers<CR>
+
+" Setup for running tests in a tmux pane
+let test#strategy = "tslime"
+let g:test#preserve_screen = 1
+nnoremap <Leader>a :TestSuite<CR>
+nnoremap <Leader>t :TestFile<CR>
+nnoremap <Leader>n :TestNearest<CR>
+nnoremap <Leader>l :TestLast<CR>
+
+" send pull to clipboard
+set clipboard=unnamed
+" keep tslime from asking which session
+let g:tslime_always_current_session = 1
+
+" autofix rubocop
+nnoremap <Leader>rc :ALEFix<CR>
+let g:ale_fixers = {
+      \   'ruby': ['rubocop'],
+      \}
+let g:ale_enabled = 1
