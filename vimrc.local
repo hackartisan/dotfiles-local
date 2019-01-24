@@ -56,6 +56,7 @@ nnoremap <Leader>f :Files<CR>
 nnoremap <Leader>b :Buffers<CR>
 
 " Setup for running tests in a tmux pane
+" you have to select window: 1; pane: 2 (with the tmux setup)
 let test#strategy = "tslime"
 let g:test#preserve_screen = 1
 nnoremap <Leader>a :TestSuite<CR>
@@ -70,7 +71,12 @@ let g:tslime_always_current_session = 1
 
 " autofix rubocop
 nnoremap <Leader>rc :ALEFix<CR>
+let g:ale_linter_aliases = {'vue': ['vue', 'javascript']}
+let g:ale_linters = {'vue': ['eslint', 'vls']}
 let g:ale_fixers = {
       \   'ruby': ['rubocop'],
+      \   'javascript': ['eslint'],
+      \   'vue': ['eslint']
       \}
 let g:ale_enabled = 1
+let g:ale_ruby_rubocop_executable = 'bundle'
