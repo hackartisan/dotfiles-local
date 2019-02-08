@@ -1,0 +1,6 @@
+dotfiles unresolved:
+
+- copying from vi into clipboard
+- copying from tmux into clipboard (vim mode in scroll does work)
+- how to open the test file for the file you're looking at
+- why is fugitive's :Gcommit file read only?

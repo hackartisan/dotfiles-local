@@ -80,3 +80,10 @@ let g:ale_fixers = {
       \}
 let g:ale_enabled = 1
 let g:ale_ruby_rubocop_executable = 'bundle'
+
+" keep syntax highlighting from flickering on vue files
+" https://github.com/posva/vim-vue#my-syntax-highlighting-stops-working-randomly
+autocmd FileType vue syntax sync fromstart
+
+" allow moving to another buffer when current buffer is unsaved
+set hidden
