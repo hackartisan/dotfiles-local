@@ -64,8 +64,9 @@ nnoremap <Leader>t :TestFile<CR>
 nnoremap <Leader>n :TestNearest<CR>
 nnoremap <Leader>l :TestLast<CR>
 
-" send pull to clipboard
+" send yank to clipboard
 set clipboard=unnamed
+
 " keep tslime from asking which session
 let g:tslime_always_current_session = 1
 
