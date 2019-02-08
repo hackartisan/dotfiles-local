@@ -87,3 +87,6 @@ autocmd FileType vue syntax sync fromstart
 
 " allow moving to another buffer when current buffer is unsaved
 set hidden
+
+" set search matches to yellow (current match is red/orange)
+highlight Search ctermbg=DarkYellow ctermfg=0
