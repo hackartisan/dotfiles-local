@@ -3,7 +3,7 @@
   email = anna3LC@gmail.com
 [alias]
   hist = log --pretty=format:'%C(yellow)%h%Cblue%d%Creset %s %Cgreen[%an, %ad]%Creset %C(cyan)[%cn, %cd]%Creset' --graph --all --date=short
-  latest = log --pretty=format:'%C(yellow)%h%Cblue%d%Creset %s %Cgreen[%an, %ad]%Creset %C(cyan)[%cn, %cd]%Creset' --graph --all --date=short -n7
+  latest = log --pretty=format:'%C(yellow)%h%Cblue%d%Creset %s %Cgreen[%an, %ad]%Creset %C(cyan)[%cn, %cd]%Creset' --graph --first-parent HEAD --date=short -n10
   report = log --pretty=format:'%h %s (%cn)'
   roll = !git add --all && git commit --amend --no-edit
 [push]
