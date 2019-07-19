@@ -1,3 +1,6 @@
 # set up chruby
 source /usr/local/share/chruby/chruby.sh
 source /usr/local/share/chruby/auto.sh
+
+# set ansible to use lpass for vault password
+export ANSIBLE_VAULT_PASSWORD_FILE=`command -v lastpass-ansible`
