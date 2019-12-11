@@ -94,3 +94,6 @@ highlight Search ctermbg=DarkYellow ctermfg=0
 
 " turn off spell checking
 set nospell
+
+" use ag via fzf to ignore files in .gitignore
+let $FZF_DEFAULT_COMMAND = 'ag -g ""'
