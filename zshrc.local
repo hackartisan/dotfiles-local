@@ -8,3 +8,13 @@ export ANSIBLE_VAULT_PASSWORD_FILE=`command -v lastpass-ansible`
 function bgrep {
   ag "$@" $(bundle show --paths) .
 }
+
+# asdf
+. $(brew --prefix asdf)/asdf.sh
+
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
+
+  autoload -Uz compinit
+  compinit
+fi
