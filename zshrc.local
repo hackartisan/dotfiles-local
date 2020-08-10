@@ -4,3 +4,7 @@ source /usr/local/share/chruby/auto.sh
 
 # set ansible to use lpass for vault password
 export ANSIBLE_VAULT_PASSWORD_FILE=`command -v lastpass-ansible`
+
+function bgrep {
+  ag "$@" $(bundle show --paths) .
+}
