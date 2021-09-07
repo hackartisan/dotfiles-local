@@ -1,12 +1,11 @@
+cdpath=($HOME/pul)
+
 # set ansible to use lpass for vault password
 export ANSIBLE_VAULT_PASSWORD_FILE=`command -v lastpass-ansible`
 
 function bgrep {
   ag "$@" `bundle list --paths`
 }
-
-# asdf
-. $(brew --prefix asdf)/asdf.sh
 
 if type brew &>/dev/null; then
   FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
@@ -25,3 +24,8 @@ export CPPFLAGS="-I/usr/local/opt/openssl@1.1/include"
 # For pkg-config to find openssl@1.1 you may need to set:
 export PKG_CONFIG_PATH="/usr/local/opt/openssl@1.1/lib/pkgconfig"
 export PATH="/usr/local/opt/git/bin:$PATH"
+
+# allow configuration of terminal color scheme
+export CLICOLOR=1
+
+export PATH="/Users/aheadley/.asdf/installs/python/3.9.0/lib/python3.9/site-packages:$PATH"
