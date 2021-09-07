@@ -97,3 +97,8 @@ set nospell
 
 " use ag via fzf to ignore files in .gitignore
 let $FZF_DEFAULT_COMMAND = 'ag -g ""'
+
+" toggle NERDTree on / off
+nnoremap <Leader>nt :NERDTreeToggle<CR>
+" make NERDTree jump to the location of the open buffer
+nnoremap <Leader>r :NERDTreeFind<CR>
