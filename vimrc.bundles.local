@@ -10,3 +10,4 @@ Plug 'w0rp/ale'
 Plug 'posva/vim-vue'
 Plug 'thiagoalmeidasa/vim-ansible-vault'
 Plug 'preservim/nerdtree'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
