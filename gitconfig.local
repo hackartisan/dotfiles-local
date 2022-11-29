@@ -6,6 +6,8 @@
   latest = log --pretty=format:'%C(yellow)%h%Cblue%d%Creset %s %Cgreen[%an, %ad]%Creset %C(cyan)[%cn, %cd]%Creset' --graph --first-parent HEAD --date=short -n10
   report = log --pretty=format:'%h %s (%cn)'
   roll = !git add --all && git commit --amend --no-edit
+  cleanup = !sh -c 'git branch --merged main | grep -v main | xargs -n 1 git branch -d'
+  co = checkout
 [push]
   default = simple
 [diff "ansible-vault"]
