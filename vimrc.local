@@ -1,5 +1,6 @@
 " Stop mapping \ to :Ag
 unmap \
+colorscheme torte
 
 set history=100 " Default history is only 20
 set undolevels=100 " Use more levels of undo
@@ -17,6 +18,9 @@ set nu " Line numbers on
 set noerrorbells  " don't beep
 set vb t_vb= " stops the beeping
 set colorcolumn=0
+set wrap "soft wrap at edge of window
+set linebreak " done linebreak in the middle of a word
+"set formatoptions-=t " don't do automatic line breaks
 
 "map ctrl-space to no-op b/c i use it with tmux
 imap <Nul> <Nop>
@@ -102,3 +106,18 @@ let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 nnoremap <Leader>nt :NERDTreeToggle<CR>
 " make NERDTree jump to the location of the open buffer
 nnoremap <Leader>r :NERDTreeFind<CR>
+
+" Run Hyrax specs in the container.
+function! HyraxRspec(cmd) abort
+  call system("cat README.md | grep 'Hyrax'")
+  if v:shell_error == 0
+    return substitute(a:cmd, 'bundle exec \(.*\)', 'docker-compose exec -w /app/samvera/hyrax-engine app sh -c "bundle exec \1"', '')
+  else
+    return a:cmd
+  endif
+endfunction
+
+let g:test#custom_transformations = {
+      \ 'hyrax_ruby': function('HyraxRspec')
+      \ }
+let g:test#transformation = 'hyrax_ruby'
