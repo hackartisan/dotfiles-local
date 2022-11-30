@@ -121,3 +121,8 @@ let g:test#custom_transformations = {
       \ 'hyrax_ruby': function('HyraxRspec')
       \ }
 let g:test#transformation = 'hyrax_ruby'
+
+let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_no_default_key_mappings = 1
+let g:vim_markdown_conceal = 0
+let g:vim_markdown_conceal_code_blocks = 0
