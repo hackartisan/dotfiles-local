@@ -8,6 +8,8 @@ function bgrep {
   ag "$@" `bundle list --paths`
 }
 
+function bfind { find `bundle list --paths` -type f -name "$@"}
+
 if type brew &>/dev/null; then
   FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
 
