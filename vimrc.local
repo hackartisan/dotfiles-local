@@ -116,7 +116,8 @@ nnoremap <Leader>r :NERDTreeFind<CR>
 function! HyraxRspec(cmd) abort
   call system("cat README.md | grep 'Hyrax'")
   if v:shell_error == 0
-    return substitute(a:cmd, 'bundle exec \(.*\)', 'docker-compose exec -w /app/samvera/hyrax-engine app sh -c "bundle exec \1"', '')
+    " return substitute(a:cmd, 'bundle exec \(.*\)', 'docker-compose exec -w /app/samvera/hyrax-engine app sh -c "bundle exec \1"', '')
+    return substitute(a:cmd, 'bundle exec \(.*\)', 'docker-compose -f docker-compose-koppie.yml exec -w /app/samvera/hyrax-engine app sh -c "bundle exec \1"', '')
   else
     return a:cmd
   endif

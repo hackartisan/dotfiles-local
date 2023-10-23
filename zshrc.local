@@ -30,7 +30,6 @@ export PATH="/usr/local/opt/git/bin:$PATH"
 export CLICOLOR=1
 
 export PATH="/Users/aheadley/.asdf/installs/python/3.9.0/lib/python3.9/site-packages:$PATH"
-# export PATH="/usr/local/opt/postgresql@15/bin:$PATH"
 
 # keep rails from crashing on database connection
 # see https://github.com/ged/ruby-pg/issues/538
