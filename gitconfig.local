@@ -1,6 +1,6 @@
 [user]
   name = Anna Headley
-  email = anna.headley@gmail.com
+  email = 845363+hackartisan@users.noreply.github.com
 [alias]
   hist = log --pretty=format:'%C(yellow)%h%Cblue%d%Creset %s %Cgreen[%an, %ad]%Creset %C(cyan)[%cn, %cd]%Creset' --graph --all --date=short
   latest = log --pretty=format:'%C(yellow)%h%Cblue%d%Creset %s %Cgreen[%an, %ad]%Creset %C(cyan)[%cn, %cd]%Creset' --graph --first-parent HEAD --date=short -n10
