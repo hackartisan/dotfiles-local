@@ -78,7 +78,10 @@ let g:tslime_always_current_window = 1
 " autofix rubocop
 nnoremap <Leader>rc :ALEFix<CR>
 let g:ale_linter_aliases = {'vue': ['vue', 'javascript']}
-let g:ale_linters = {'vue': ['eslint', 'vls']}
+let g:ale_linters = {
+      \   'ruby': ['rubocop'],
+      \   'vue': ['eslint', 'vls']
+        \}
 let g:ale_fixers = {
       \   'ruby': ['rubocop'],
       \   'javascript': ['eslint'],
@@ -86,6 +89,7 @@ let g:ale_fixers = {
       \}
 let g:ale_enabled = 1
 let g:ale_ruby_rubocop_executable = 'bundle'
+let g:ale_virtualtext_cursor = 'disabled'
 
 " keep syntax highlighting from flickering on vue files
 " https://github.com/posva/vim-vue#my-syntax-highlighting-stops-working-randomly
