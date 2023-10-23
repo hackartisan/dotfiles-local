@@ -63,10 +63,10 @@ nnoremap <Leader>b :Buffers<CR>
 " you have to select window: 1; pane: 2 (with the tmux setup)
 let test#strategy = "tslime"
 let g:test#preserve_screen = 1
-nnoremap <Leader>a :TestSuite PGGSSENCMODE=disable<CR>
-nnoremap <Leader>t :TestFile PGGSSENCMODE=disable<CR>
-nnoremap <Leader>n :TestNearest PGGSSENCMODE=disable<CR>
-nnoremap <Leader>l :TestLast PGGSSENCMODE=disable<CR>
+nnoremap <Leader>a :TestSuite<CR>
+nnoremap <Leader>t :TestFile<CR>
+nnoremap <Leader>n :TestNearest<CR>
+nnoremap <Leader>l :TestLast<CR>
 
 " send yank to clipboard
 set clipboard=unnamed
