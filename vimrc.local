@@ -95,6 +95,14 @@ let g:ale_virtualtext_cursor = 'disabled'
 " https://github.com/posva/vim-vue#my-syntax-highlighting-stops-working-randomly
 autocmd FileType vue syntax sync fromstart
 
+" fix word wrapping / line breaks in markdown files
+augroup auFileTypes
+  autocmd!
+  autocmd FileType markdown setlocal textwidth=0
+  autocmd FileType markdown setlocal wrap
+  autocmd FileType markdown setlocal linebreak
+augroup end
+
 " allow moving to another buffer when current buffer is unsaved
 set hidden
 
@@ -123,12 +131,21 @@ function! HyraxRspec(cmd) abort
   endif
 endfunction
 
+" run mix test in debug mode (put `dbg()` in code for breakpoint)
+function! DebugMix(cmd) abort
+  if filereadable('mix.exs')
+    return 'iex --dbg pry -S '.a:cmd.' --trace'
+  endif
+endfunction
+
 let g:test#custom_transformations = {
-      \ 'hyrax_ruby': function('HyraxRspec')
+      \ 'hyrax_ruby': function('HyraxRspec'),
+      \ 'iex_mix': function('DebugMix')
       \ }
-let g:test#transformation = 'hyrax_ruby'
+let g:test#transformation = 'iex_mix'
 
 let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_no_default_key_mappings = 1
 let g:vim_markdown_conceal = 0
 let g:vim_markdown_conceal_code_blocks = 0
+let g:mkdp_browser = 'firefox'
