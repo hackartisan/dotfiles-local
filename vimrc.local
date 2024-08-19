@@ -1,6 +1,6 @@
 " Stop mapping \ to :Ag
 unmap \
-colorscheme torte
+" colorscheme torte
 
 set history=100 " Default history is only 20
 set undolevels=100 " Use more levels of undo
