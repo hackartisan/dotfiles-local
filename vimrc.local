@@ -135,6 +135,8 @@ endfunction
 function! DebugMix(cmd) abort
   if filereadable('mix.exs')
     return 'iex --dbg pry -S '.a:cmd.' --trace'
+  else
+    return a:cmd
   endif
 endfunction
 
