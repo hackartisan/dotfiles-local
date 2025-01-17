@@ -2,3 +2,4 @@ alias bunx='bundle exec'
 
 # Use bin/dev-tat to start up tmux session
 alias tat="dev-tat"
+alias ag="ag --hidden --ignore=\"*.git*\""
