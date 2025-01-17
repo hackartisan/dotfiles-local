@@ -22,8 +22,11 @@ export PATH="/usr/local/opt/git/bin:$PATH"
 # allow configuration of terminal color scheme
 export CLICOLOR=1
 
-export PATH="/Users/aheadley/.asdf/installs/python/3.9.0/lib/python3.9/site-packages:$PATH"
+# export PATH="/Users/aheadley/.asdf/installs/python/3.9.0/lib/python3.9/site-packages:$PATH"
 
 # keep rails from crashing on database connection
 # see https://github.com/ged/ruby-pg/issues/538
-export PGGSSENCMODE="disable"
+# export PGGSSENCMODE="disable"
+
+# help pg gem find libpq
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
