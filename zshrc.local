@@ -1,5 +1,7 @@
 cdpath=($HOME/pul)
 
+autoload -Uz compinit && compinit
+
 # set ansible to use lpass for vault password
 export ANSIBLE_VAULT_PASSWORD_FILE="$(command -v lastpass-ansible)"
 export LPASS_AGENT_TIMEOUT="32400"

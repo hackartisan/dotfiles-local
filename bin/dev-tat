@@ -37,7 +37,7 @@ build_workspace() {
   tmux split-window -h -t "$session_name"
   tmux select-pane -t "$session_name:.1"
   tmux split-window -v -t "$session_name"
-  tmux send-keys -t "$session_name:.3" "vim" C-m
+  tmux send-keys -t "$session_name:.3" "nvim" C-m
   tmux select-pane -t "$session_name:.3"
 }
 

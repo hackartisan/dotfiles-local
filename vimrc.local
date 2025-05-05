@@ -1,6 +1,10 @@
 " Stop mapping \ to :Ag
 unmap \
-" colorscheme torte
+
+" force vim to use configured terminal colors
+" set t_Co=8
+set background=dark
+colorscheme moonfly
 
 set history=100 " Default history is only 20
 set undolevels=100 " Use more levels of undo
@@ -13,6 +17,7 @@ set ignorecase  " case insensitive search
 set smartcase   " If a capital letter is included in search, make it case-sensitive
 set hlsearch  " highlight search results
 
+" sounds and appearance
 set ruler " ruler on
 set nu " Line numbers on
 set noerrorbells  " don't beep
@@ -50,6 +55,8 @@ nnoremap \9 :9b<CR>
 nnoremap \0 :10b<CR>
 " It's useful to show the buffer number in the status line.
 set laststatus=2 statusline=%02n:%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
+" allow moving to another buffer when current buffer is unsaved
+set hidden
 
 " tab completion for filenames
 set wildmode=longest,list,full
@@ -103,8 +110,10 @@ augroup auFileTypes
   autocmd FileType markdown setlocal linebreak
 augroup end
 
-" allow moving to another buffer when current buffer is unsaved
-set hidden
+" fix elixir file type detection
+au BufRead,BufNewFile *.ex,*.exs set filetype=elixir
+au BufRead,BufNewFile *.eex,*.heex,*.leex,*.sface,*.lexs set filetype=eelixir
+au BufRead,BufNewFile mix.lock set filetype=elixir
 
 " set search matches to yellow (current match is red/orange)
 highlight Search ctermbg=DarkYellow ctermfg=0
@@ -146,8 +155,36 @@ let g:test#custom_transformations = {
       \ }
 let g:test#transformation = 'iex_mix'
 
+" markdown settings
 let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_no_default_key_mappings = 1
 let g:vim_markdown_conceal = 0
 let g:vim_markdown_conceal_code_blocks = 0
 let g:mkdp_browser = 'firefox'
+
+" COC configs (selected from https://github.com/neoclide/coc.nvim)
+" Always show the signcolumn, otherwise it would shift the text each time
+" diagnostics appear/become resolved
+set signcolumn=yes
+
+" Use `[g` and `]g` to navigate diagnostics
+" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list
+nmap <silent><nowait> [g <Plug>(coc-diagnostic-prev)
+nmap <silent><nowait> ]g <Plug>(coc-diagnostic-next)
+
+" GoTo code navigation
+nmap <silent><nowait> gd <Plug>(coc-definition)
+nmap <silent><nowait> gy <Plug>(coc-type-definition)
+nmap <silent><nowait> gi <Plug>(coc-implementation)
+nmap <silent><nowait> gr <Plug>(coc-references)
+
+" Use K to show documentation in preview window
+nnoremap <silent> K :call ShowDocumentation()<CR>
+
+function! ShowDocumentation()
+  if CocAction('hasProvider', 'hover')
+    call CocActionAsync('doHover')
+  else
+    call feedkeys('K', 'in')
+  endif
+endfunction
