@@ -1,5 +1,5 @@
 [user]
-  name = Anna Headley
+  name = hackartisan
   email = 845363+hackartisan@users.noreply.github.com
 [alias]
   hist = log --pretty=format:'%C(yellow)%h%Cblue%d%Creset %s %Cgreen[%an, %ad]%Creset %C(cyan)[%cn, %cd]%Creset' --graph --all --date=short
@@ -10,7 +10,5 @@
   co = checkout
 [push]
   default = simple
-[diff "ansible-vault"]
-  textconv = ansible-vault view
 [commit]
   template = ~/.gitmessage.local
